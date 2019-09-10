@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Page</title>
+  	<link rel ="stylesheet" href="style.css">
+</head>
+<body>
+<script>  
+function validateform(){  
+	var fullname=document.myform.fullname.value;  
+	var email=document.myform.email.value; 
+	var email=document.myform.username.value;
+	var password=document.myform.password.value;  
+  
+if (fullname==null || fullname==""){  
+  alert(required);  
+  return false;  
+if (email==null || email==""){  
+ alert(required);  
+ return false;
+if (username==null || username==""){  
+ alert(required);  
+ return false;
+}else if(password.length<6){  
+  alert(required);  
+  return false;  
+  }  
+}  
+</script>  
+<body>
+<div class="login-page">
+<div class="form">  
+<h2 style="color:white">Welcome to Registration form:</h2>
+<form class "register-form" name="myform" method="post" action="ServletLogin" onsubmit="return validateform()" > 
+<input type="text" name="fullname" required="please fill" placeholder="Enter name"><br></br>  
+<input type="text" name="email" required="please fill" placeholder="Email"><br><br> 
+<input type="text" name="username" required="please fill" placeholder="Username"><br><br> 
+<input type="password" name="password" required="please fill" placeholder="Password"><br><br>
+<button>Register</button>
+<p class="message">Already Registered?<a href="#">Login here</a></p>
+</form>
+
+<form class="login-form" name="myform" method="post" action="LoginController" onsubmit="return validateform()">
+<input type="text" name="username" required="please fill" placeholder="Username"><br><br> 
+<input type="password" name="password" required="please fill" placeholder="Password"><br><br>
+<button>login</button>
+<p class="message">Change Password?<a href="#">Change here</a></p>
+</form>
+
+<form class="change-pass" name="myform" method="post" action="ServletUpdate" onsubmit="return validateform()">
+<input type="text" name="username" required="please fill" placeholder="username"><br><br> 
+<input type="password" name="password" required="please fill" placeholder="New password"><br><br>
+<input type="password" name="password" required="please fill" placeholder="Confirm password"><br><br>
+<button>update</button>
+<p class="message">Not Register?<a href="#">Register here</a></p>
+</form>
+
+<form class="delete-user" name="myform" method="post" action="DeleteServlet1" onsubmit="return validateform()">
+<input type="text" name="username" required="please fill" placeholder="Username"><br><br> 
+<button>delete</button>
+<p class="message">Delete Account?<a href="#">Click here</a></p>
+</form>
+
+</div>
+</div>
+
+<script src='https://code.jquery.com/jquery-3.3.1.min.js'>
+</script>
+<script>
+$('.message a').click(function(){
+$('form').animate({height:"toggle", opacity:"toggle"}, "slow");
+});
+
+</script> 
+</body>
+</html>
